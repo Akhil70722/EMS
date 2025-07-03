@@ -1,0 +1,58 @@
+.department-list {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.department-list h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.department-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.department-list th,
+.department-list td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.department-list th {
+  background-color: #f2f2f2;
+}
+
+.department-list tr:hover {
+  background-color: #f9f9f9;
+}
+
+.department-list button {
+  margin-bottom: 1rem;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.department-list button:hover {
+  background-color: #0056b3;
+}
+
+.department-list a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.department-list a:hover {
+  text-decoration: underline;
+}

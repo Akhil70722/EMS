@@ -1,0 +1,96 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #1e1e2f;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00d4ff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar ul li {
+  padding: 14px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar ul li a,
+.sidebar ul li button {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li a:hover,
+.sidebar ul li button:hover {
+  background-color: #2d2d44;
+  color: #00d4ff;
+}
+
+/* Logout button */
+.logout {
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border: none;
+  background-color: #e63946;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  width: 80%;
+  text-align: center;
+}
+
+.logout:hover {
+  background-color: #d62828;
+}
+
+/* CSV Export button */
+.csv-export-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.csv-export-btn:hover {
+  color: #00d4ff;
+  text-decoration: underline;
+}

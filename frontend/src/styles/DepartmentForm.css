@@ -1,0 +1,39 @@
+.department-form {
+  max-width: 500px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.department-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.department-form input,
+.department-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.department-form button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.department-form button:hover {
+  background-color: #45a049;
+}

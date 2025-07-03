@@ -1,0 +1,51 @@
+.stat-card {
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 220px;
+  cursor: default;
+}
+
+/* Hover effect */
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.stat-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* Value */
+.stat-card p {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Total Employees */
+.stat-card.total {
+  background: linear-gradient(135deg, #ff6a00, #ee0979); /* Orange to pink */
+}
+
+/* Active Employees */
+.stat-card.active {
+  background: linear-gradient(135deg, #00b09b, #96c93d); /* Green to lime */
+}
+
+/* Inactive Employees */
+.stat-card.inactive {
+  background: linear-gradient(135deg, #a1a1aa, #4b5563); /* Cool silver to slate */
+}
+
+/* Attendance */
+.stat-card.attendance {
+  background: linear-gradient(135deg, #667eea, #764ba2); /* Purple */
+}

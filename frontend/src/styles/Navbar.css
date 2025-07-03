@@ -1,0 +1,103 @@
+/* Navbar wrapper */
+.navbar {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  margin-bottom: 30px;
+}
+
+/* Brand title/logo */
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Right side: search + profile */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Search box with transition */
+.search-box {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  width: 200px;
+}
+
+.search-box::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-box:hover,
+.search-box:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Profile section */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.profile:hover {
+  opacity: 0.85;
+}
+
+/* Avatar image */
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #ecf0f1;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Username text */
+.username {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Responsive: shrink on small devices */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
