@@ -1,0 +1,146 @@
+/* Full screen background */
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f2f5;
+  position: relative;
+}
+
+.register-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/ems.png') no-repeat center center / cover;
+  filter: blur(10px) brightness(0.7);
+  z-index: 1;
+}
+
+/* Register box container */
+.register-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 950px;
+  max-width: 95%;
+  height: 90vh; /* 🔥 Adjust height relative to viewport */
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Left: EMS Image */
+.register-left {
+  flex: 0 0 50%;
+  height: 100%;
+}
+
+.register-illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right: Registration form */
+.register-right {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 50px;
+  height: 100%; /* 🔥 Ensure it fills full height */
+  box-sizing: border-box;
+}
+
+.ems-heading {
+  font-size: 3rem;
+  color: #f39c12;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.user-icon {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 90px;
+  height: 90px;
+}
+
+.register-right h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.register-right p {
+  text-align: center;
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.register-right form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center form vertically */
+  height: 100%; /* 🔥 Fill available space */
+}
+
+.register-right label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+.register-right input {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-right input:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 5px rgba(243, 156, 18, 0.5);
+}
+
+.register-right button {
+  padding: 14px;
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.register-right button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #f1c40f, #f39c12);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-content {
+    flex-direction: column;
+    height: auto;
+    margin: 20px 0;
+  }
+  .register-left,
+  .register-right {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+  .register-illustration {
+    height: 200px;
+    border-radius: 20px 20px 0 0;
+  }
+}

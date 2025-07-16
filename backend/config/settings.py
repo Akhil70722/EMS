@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,8 +20,9 @@ SECRET_KEY = 'django-insecure-b(!k72*yiop^f$-!a9c$8p%nq5q(#i-6y@it(0$&g1vs3ul$9g
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'employees.CustomUser'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,15 +70,36 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'employee_db',
+#         'USER': 'postgres',
+#         'PASSWORD': '7620063104',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'employee_db',
+#         'USER': 'postgres',
+#         'PASSWORD': '7620063104',
+#         'HOST': 'db',
+#         'PORT': '5432',
+#     }
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'employee_db',
-        'USER': 'postgres',
-        'PASSWORD': '7620063104',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'employee_db'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', '7620063104'),
+        'HOST': os.environ.get('DB_HOST', 'db'),  
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
@@ -121,10 +145,21 @@ REST_FRAMEWORK = {
     ]
 }
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://192.168.1.29:3000",  # Your React frontend
+# ]
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 # (Optional if you disable the above line)
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+# ]

@@ -1,26 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/axiosConfig';
 import '../styles/EmployeeList.css';
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetchEmployees();
+    const checkAuth = async () => {
+      const access = localStorage.getItem('access');
+      const refresh = localStorage.getItem('refresh');
+      if (!access || !refresh) {
+        navigate('/login');
+      } else {
+        await fetchEmployees();
+      }
+    };
+
+    checkAuth();
   }, []);
 
-  const fetchEmployees = () => {
-    api.get('employees/')
-      .then(res => {
-        setEmployees(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Error fetching employees:", err);
-        setLoading(false);
-      });
+  const fetchEmployees = async () => {
+    try {
+      const res = await api.get('employees/');
+      setEmployees(res.data);
+    } catch (err) {
+      console.error("Error fetching employees:", err);
+      if (err.response?.status === 401) {
+        localStorage.removeItem('access');
+        localStorage.removeItem('refresh');
+        navigate('/login');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleDelete = async (id) => {
@@ -70,7 +85,13 @@ export default function EmployeeList() {
           <Link to="/employees/add">
             <button className="add-btn">+ Add Employee</button>
           </Link>
-          <button className="download-btn" onClick={downloadCSV}>⬇ Export CSV</button>
+          <button
+            className="download-btn"
+            onClick={downloadCSV}
+            disabled={employees.length === 0}
+          >
+            ⬇ Export CSV
+          </button>
         </div>
       </div>
 
@@ -78,6 +99,22 @@ export default function EmployeeList() {
         <p className="loading-text">Loading...</p>
       ) : employees.length === 0 ? (
         <p className="no-data-text">No employees found.</p>
+      ) : employees.length === 1 ? (
+        <div className="single-emp-profile">
+          <h3>Your Profile</h3>
+          <p><strong>Name:</strong> {employees[0].name}</p>
+          <p><strong>Email:</strong> {employees[0].email}</p>
+          <p><strong>Phone:</strong> {employees[0].phone}</p>
+          <p><strong>Department:</strong> {employees[0].department}</p>
+          <p><strong>Designation:</strong> {employees[0].designation}</p>
+          <p><strong>Salary:</strong> ₹{employees[0].salary}</p>
+          <p><strong>Status:</strong> {employees[0].is_active ? 'Active' : 'Inactive'}</p>
+          <div style={{ marginTop: '15px' }}>
+            <Link to={`/employees/edit/${employees[0].id}`}>
+              <button className="edit-btn">Edit Profile</button>
+            </Link>
+          </div>
+        </div>
       ) : (
         <div className="emp-table-wrapper">
           <table className="emp-table">

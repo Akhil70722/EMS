@@ -1,0 +1,113 @@
+:root {
+  --primary-color: #00bcd4;
+  --primary-dark: #008c9e;
+  --bg-color: #f2f4f8;
+  --text-color: #1e1e2f;
+  --card-bg: #ffffff;
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --border-radius: 16px;
+  --transition: 0.3s ease-in-out;
+  --font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.project-list-container {
+  padding: 2rem 3rem;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.project-list-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 188, 212, 0.2);
+}
+
+/* Grid layout */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Card design */
+.project-card {
+  background: var(--card-bg);
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  border-left: 6px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.25);
+}
+
+/* Project Title */
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* Detail Text */
+.project-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: #444;
+}
+
+.project-card strong {
+  color: var(--primary-dark);
+}
+
+/* Empty state */
+.project-empty {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 2rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .project-list-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-list-container h2 {
+    font-size: 2rem;
+  }
+}

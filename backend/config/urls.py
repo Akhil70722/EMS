@@ -26,23 +26,28 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.http import HttpResponse
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 def home(request):
     return HttpResponse("Welcome to the Employee Management System API")
 
 urlpatterns = [
-    path('', home),  # Root path: http://127.0.0.1:8000/
-    
-    # Admin panel
+    # Root welcome route
+    path('', home),  # http://127.0.0.1:8000/
+
+    # Django Admin Panel
     path('admin/', admin.site.urls),
-    
-    # All API endpoints grouped under /api/
-    path('api/', include('employees.urls')),  # /api/employees/
-    
-    # JWT authentication
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Login
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Token refresh
-    
-    # DRF's browsable API login/logout
+
+    # App-specific APIs (e.g., /api/employees/)
+    path('api/', include('employees.urls')),
+
+    # JWT Auth (Login + Refresh)
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # POST: username & password
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # POST: refresh token
+
+    # DRF login/logout for Browsable API
     path('api-auth/', include('rest_framework.urls')),
 ]

@@ -1,0 +1,173 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+  margin: 0;
+  padding: 0;
+}
+
+/* Container with Enhanced Glassmorphism */
+.salary-slip-container {
+  max-width: 600px; /* slightly wider for better layout */
+  margin: 60px 40px 60px 700px; /* Top Right Bottom Left */
+  /* 320px: 260px sidebar + 60px extra spacing */
+  padding: 40px 36px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: slideUp 0.8s ease-out;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Decorative Circle */
+.salary-slip-container::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  background: #6dd5ed;
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Header Title */
+.salary-slip-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Form layout */
+.salary-slip-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Label Styling */
+.salary-slip-container label {
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 4px;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+/* Input & Select Styling */
+.salary-slip-container select,
+.salary-slip-container input {
+  padding: 12px 16px;
+  border: 1.5px solid #dcdde1;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.salary-slip-container input:focus,
+.salary-slip-container select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Animated Button */
+.salary-slip-container button {
+  padding: 14px;
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease;
+}
+
+.salary-slip-container button:hover {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Success / Error Message */
+.salary-slip-container p {
+  text-align: center;
+  font-weight: 600;
+  color: #27ae60;
+  margin-top: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .salary-slip-container {
+    margin: 40px auto; /* Center it horizontally when sidebar collapses */
+  }
+}
+
+@media (max-width: 600px) {
+  .salary-slip-container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 24px;
+  }
+
+  .salary-slip-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .salary-slip-container button {
+    font-size: 1rem;
+  }
+}

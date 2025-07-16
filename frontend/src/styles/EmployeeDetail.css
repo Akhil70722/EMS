@@ -1,42 +1,60 @@
+/* EmployeeDetail.css */
+
 .emp-detail {
-  background: #ffffff;
   max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  color: #333;
-  line-height: 1.6;
-  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .emp-detail h2 {
-  margin-bottom: 1rem;
-  color: #2c3e50;
-  font-size: 1.8rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1e40af;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
 }
 
 .emp-detail p {
-  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  margin: 14px 0;
+  line-height: 1.6;
 }
 
-.emp-detail b {
-  color: #555;
+.emp-detail p b {
+  color: #111827;
+  margin-right: 8px;
 }
 
-.emp-detail button {
-  margin-top: 1.5rem;
-  padding: 10px 16px;
-  background-color: #4a90e2;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .emp-detail {
+    padding: 25px;
+    margin: 30px 16px;
+  }
+
+  .emp-detail h2 {
+    font-size: 1.6rem;
+  }
+
+  .emp-detail p {
+    font-size: 1rem;
+  }
 }
 
-.emp-detail button:hover {
-  background-color: #357ab8;
+/* Subtle animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,0 +1,99 @@
+/* EmployeeProjectReplies.css - WhatsApp-style Chat UI */
+
+.employee-replies-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e5ddd5;
+  min-height: 100vh;
+  border-radius: 10px;
+}
+
+.employee-replies-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #075e54;
+}
+
+.employee-project-thread {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.employee-project-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #128c7e;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chat-message-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.employee-bubble {
+  background-color: #dcf8c6;
+  align-self: flex-start;
+  border-top-left-radius: 0;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.admin-bubble {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  align-self: flex-end;
+  border-top-right-radius: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.chat-bubble strong {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: 600;
+  color: #222;
+}
+
+.chat-timestamp {
+  font-size: 11px;
+  text-align: right;
+  margin-top: 6px;
+  color: #666;
+  font-style: italic;
+}
+
+.employee-loading,
+.employee-no-replies {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+  padding: 1.5rem;
+  font-style: italic;
+}

@@ -1,0 +1,97 @@
+.leave-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.leave-form h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.leave-form p {
+  text-align: center;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.leave-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.leave-form label {
+  margin: 10px 0 6px;
+  color: #34495e;
+  font-weight: 600;
+}
+
+.leave-form input[type="text"],
+.leave-form input[type="date"],
+.leave-form select,
+.leave-form textarea {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background-color: #fafafa;
+  transition: border 0.2s;
+}
+
+.leave-form input:focus,
+.leave-form select:focus,
+.leave-form textarea:focus {
+  border-color: #3498db;
+  background-color: #ffffff;
+}
+
+.leave-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.leave-form button[type="submit"] {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background: #3498db;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.leave-form button:hover {
+  background: #2980b9;
+}
+
+.leave-form select:disabled {
+  color: #999;
+  background-color: #eee;
+}
+
+@media screen and (max-width: 600px) {
+  .leave-form {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .leave-form h2 {
+    font-size: 22px;
+  }
+
+  .leave-form button {
+    font-size: 15px;
+  }
+}

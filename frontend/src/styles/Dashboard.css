@@ -1,81 +1,166 @@
-/* Global base styles */
+/* 🌐 Global base styles */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f2f5; /* Light grey background */
-  color: #333; /* Dark grey text */
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  height: 100%;
 }
 
-/* Dashboard container */
+/* 🚀 Dashboard container */
 .dashboard-container {
   display: flex;
   height: 100vh;
   width: 100%;
+  position: relative;
+  overflow: hidden;
   background-color: #f0f2f5;
-  overflow-x: hidden;
 }
 
-/* Sidebar-aware main content */
+/* 🎥 Video background */
+.main-content video.background-video {
+  position: fixed; /* stays fixed behind all content */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.25; /* softer for text readability */
+  pointer-events: none;
+  filter: blur(2px) brightness(0.75);
+  animation: fadeInVideo 2s ease forwards;
+}
+
+@keyframes fadeInVideo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.25;
+  }
+}
+
+/* 🌈 Floating Gradient Blobs */
+.dashboard-container::before,
+.dashboard-container::after {
+  content: '';
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #6dd5ed, transparent 70%);
+  opacity: 0.12;
+  animation: floatBlob 15s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.dashboard-container::after {
+  background: radial-gradient(circle at center, #fcb045, transparent 70%);
+  bottom: -180px;
+  right: -180px;
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.1) translateY(-15px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 📦 Main content */
 .main-content {
-  margin-left: 250px; /* sidebar width */
-  padding: 20px 40px;
-  width: calc(100% - 250px);
+  margin-left: 300px;
+  padding: 24px 40px;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2; /* above video and blobs */
   overflow-y: auto;
-  overflow-x: hidden;
   box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+  background: rgba(255, 255, 255, 0.15); /* subtle glassmorphism */
+  backdrop-filter: blur(10px) saturate(180%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
 }
 
-/* Stat card layout */
+/* ✨ Stat card grid */
 .stat-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+  animation: fadeInUp 1s ease forwards;
 }
 
-/* Section for attendance */
-.attendance-section {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Section for charts */
+/* 📊 Chart container */
 .chart-container {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  animation: scaleIn 0.8s ease forwards;
 }
 
-/* Dashboard wrapper */
-.dashboard-wrapper {
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Main flexible area */
-.main-area {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
+/* 📅 Attendance section */
+.attendance-section {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease forwards;
 }
 
-/* Hide horizontal scrollbars */
-::-webkit-scrollbar {
-  height: 0;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Optional subtle vertical scrollbar style */
-::-webkit-scrollbar-thumb {
-  background-color: #c0c0c0;
-  border-radius: 4px;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .dashboard-container::before,
+  .dashboard-container::after {
+    width: 300px;
+    height: 300px;
+  }
 }

@@ -1,96 +1,184 @@
 .sidebar {
-  width: 240px;
+  width: 290px;
   height: 100vh;
-  background-color: #1e1e2f;
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 20px 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  overflow-y: auto;
   z-index: 100;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.3);
 }
 
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 22px;
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+/* Title */
+.sidebar-title {
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #00d4ff;
+  color: #00f0ff;
+  margin: 15px 0 35px 5px;
+  text-align: center;
+  text-shadow: 0 0 6px #00f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.sidebar ul {
+/* Navigation List */
+.sidebar-links {
   list-style: none;
   padding: 0;
   margin: 0;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+/* All Nav Items: Consistent Design */
+.sidebar-links li a,
+.sidebar-links li button {
+  display: flex;
+  align-items: center;
   gap: 10px;
-}
-
-.sidebar ul li {
-  padding: 14px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.sidebar ul li a,
-.sidebar ul li button {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #e0e0e0;
   text-decoration: none;
-  color: inherit;
-  display: block;
+  border-radius: 10px;
+  background-color: #2b2b44;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover and Active States */
+.sidebar-links li a:hover,
+.sidebar-links li button:hover {
+  background-color: #34344e;
+  color: #00f0ff;
+  transform: translateX(4px);
+}
+
+/* Active Item */
+.sidebar-links li.active a {
+  background-color: #34344e;
+  color: #00f0ff;
+  font-weight: 600;
+  box-shadow: inset 4px 0 0 #00f0ff;
+  transform: none;
+}
+
+/* CSV Export Button Style */
+.sidebar button.special {
   width: 100%;
-  background: none;
+  padding: 12px 16px;
+  background-color: #2b2b44;
+  color: #ffffff;
   border: none;
-  text-align: left;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.sidebar ul li:hover,
-.sidebar ul li a:hover,
-.sidebar ul li button:hover {
-  background-color: #2d2d44;
-  color: #00d4ff;
-}
-
-/* Logout button */
-.logout {
-  margin: 20px auto 0;
-  padding: 10px 20px;
-  border: none;
-  background-color: #e63946;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
   transition: background-color 0.3s ease;
-  font-size: 16px;
-  width: 80%;
-  text-align: center;
 }
 
-.logout:hover {
-  background-color: #d62828;
+/* Hover Effect for CSV & Logout */
+.sidebar button.special:hover,
+.logout-btn:hover {
+  background-color: #ff4d4d;
+  color: white;
+  transform: translateX(4px);
 }
 
-/* CSV Export button */
-.csv-export-btn {
-  background: none;
-  border: none;
-  color: inherit;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  cursor: pointer;
+/* Logout Button */
+.logout-btn {
   width: 100%;
-  text-align: left;
+  padding: 12px 16px;
+  background-color: #2b2b44;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.csv-export-btn:hover {
-  color: #00d4ff;
-  text-decoration: underline;
+/* Bottom Spacing: Proper Gap for Buttons */
+.sidebar-links li.export-item,
+.sidebar-links li.logout-item {
+  margin-top: 12px;
 }
+
+/* 🔥 Projects Section Styling */
+.project-list-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0 6px 4px;
+  color: #00f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 4px;
+}
+
+.project-item {
+  background-color: #232340;
+  margin: 4px 0;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #d0d0d0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.project-item:hover {
+  background-color: #303050;
+  color: #00f0ff;
+}
+
+
+.folder-toggle {
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: #2b2b44;
+  color: #e0e0e0;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.folder-toggle:hover {
+  background-color: #34344e;
+  color: #00f0ff;
+}
+
+.nested-project-list {
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.nested-project-list li {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+
+

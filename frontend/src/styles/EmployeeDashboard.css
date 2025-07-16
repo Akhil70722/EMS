@@ -1,0 +1,381 @@
+/* 🌈 General Layout */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #f0f4f8, #d9e2ec);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInDashboard 1s ease-in-out forwards;
+}
+
+@keyframes fadeInDashboard {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🎨 Floating Gradient Blobs */
+.dashboard-container::before,
+.dashboard-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: blobFloat 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.dashboard-container::before {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at 30% 30%, #6dd5ed, transparent 70%);
+  top: -150px;
+  left: -150px;
+}
+
+.dashboard-container::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at 70% 70%, #fcb045, transparent 70%);
+  bottom: -120px;
+  right: -120px;
+}
+
+@keyframes blobFloat {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-20px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 🪞 Sidebar */
+.sidebar {
+  width: 240px;
+  background: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+  padding: 25px;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  z-index: 1;
+  animation: slideInSidebar 0.8s ease forwards;
+}
+
+@keyframes slideInSidebar {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar h2 {
+  margin-bottom: 25px;
+  font-size: 1.7rem;
+  color: #e0f2fe;
+  text-align: center;
+  background: linear-gradient(90deg, #60a5fa, #3b82f6, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Sidebar Buttons */
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background: linear-gradient(145deg, #334155, #475569);
+  border: none;
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar button:hover {
+  background: linear-gradient(145deg, #475569, #334155);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Ripple effect */
+.sidebar button::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar button:active::after {
+  animation: rippleEffect 0.6s ease-out;
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 🌟 Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 📇 Profile Card */
+/* 🪞 Profile Card Glassmorphism with Animations */
+.profile-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  max-width: 650px;
+  margin: 60px auto;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1;
+  animation: fadeInCard 1.2s ease forwards;
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 🎈 Floating Gradient Circles */
+.profile-card::before,
+.profile-card::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: 0;
+  animation: floatCircles 12s ease-in-out infinite alternate;
+}
+
+.profile-card::before {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 30% 30%, #6dd5ed, transparent 70%);
+  top: -60px;
+  left: -60px;
+}
+
+.profile-card::after {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at 70% 70%, #fcb045, transparent 70%);
+  bottom: -50px;
+  right: -50px;
+}
+
+@keyframes floatCircles {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, -20px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* 🌟 Animated Avatar Placeholder */
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f0f4f8, #d9e2ec);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 20px auto;
+  position: relative;
+  overflow: hidden;
+  animation: avatarGlow 3s ease-in-out infinite;
+}
+
+@keyframes avatarGlow {
+  0% {
+    box-shadow: 0 0 15px #6dd5ed, 0 0 30px #fcb045;
+  }
+  50% {
+    box-shadow: 0 0 25px #6dd5ed, 0 0 50px #fcb045;
+  }
+  100% {
+    box-shadow: 0 0 15px #6dd5ed, 0 0 30px #fcb045;
+  }
+}
+
+/* ✨ Profile Text Animations */
+.profile-header h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1e40af;
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+  animation: textPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes textPulse {
+  0% {
+    text-shadow: 0 0 5px #6dd5ed, 0 0 10px #fcb045;
+  }
+  100% {
+    text-shadow: 0 0 15px #6dd5ed, 0 0 30px #fcb045;
+  }
+}
+
+.designation {
+  text-align: center;
+  color: #6b7280;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.profile-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #374151;
+  text-align: center;
+}
+
+
+
+/* 🗂️ Leave Cards */
+.leave-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.leave-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  border-left: 6px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.leave-card:hover {
+  transform: rotateY(5deg) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.leave-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.leave-card p {
+  color: #374151;
+  font-size: 1rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-top: 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.status-badge.approved {
+  background: linear-gradient(90deg, #a7f3d0, #6ee7b7);
+  color: #065f46;
+}
+
+.status-badge.rejected {
+  background: linear-gradient(90deg, #fecaca, #f87171);
+  color: #991b1b;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .sidebar button {
+    flex: 1 1 45%;
+    margin: 5px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .profile-card {
+    width: 100%;
+  }
+}

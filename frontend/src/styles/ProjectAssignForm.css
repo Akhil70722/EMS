@@ -1,0 +1,116 @@
+/* Container Styling */
+.task-form-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.7s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.task-form-container:hover {
+  transform: translateY(-4px);
+}
+
+/* Header */
+.task-form-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Form Styling */
+.task-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input and Textarea */
+.task-form-container input,
+.task-form-container textarea,
+.task-form-container select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #fdfdfd;
+}
+
+.task-form-container input:focus,
+.task-form-container textarea:focus,
+.task-form-container select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Labels */
+.task-form-container label {
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 8px;
+  display: block;
+}
+
+/* Button Styling */
+.task-form-container button {
+  padding: 14px;
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.task-form-container button:hover {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Multi-select Styling */
+.task-form-container select[multiple] {
+  height: 120px;
+  resize: vertical;
+  background: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .task-form-container {
+    padding: 20px;
+    margin: 30px 15px;
+  }
+
+  .task-form-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .task-form-container button {
+    font-size: 1rem;
+  }
+}

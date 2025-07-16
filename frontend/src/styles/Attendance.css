@@ -1,32 +1,70 @@
 .attendance-page {
+  max-width: 1200px;
+  margin: 40px auto;
   padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .attendance-page h2 {
+  text-align: center;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: #333;
 }
 
+/* Date Picker */
+.date-picker-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.date-picker-container label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #444;
+}
+
+#attendance-date {
+  padding: 6px 10px;
+  font-size: 16px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Table Styles */
 .attendance-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  border-radius: 8px;
-  overflow: hidden;
+  margin-top: 10px;
+  font-size: 16px;
 }
 
-.attendance-table th, .attendance-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
 }
 
 .attendance-table th {
-  background-color: #f5f5f5;
+  background-color: #004e92;
+  color: white;
 }
 
+.attendance-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.attendance-table tr:hover {
+  background-color: #e0f7fa;
+}
+
+/* Status Color */
 .present {
   color: green;
   font-weight: bold;
@@ -35,4 +73,10 @@
 .absent {
   color: red;
   font-weight: bold;
+}
+
+/* No records message */
+.attendance-table td[colspan="6"] {
+  font-style: italic;
+  color: #777;
 }

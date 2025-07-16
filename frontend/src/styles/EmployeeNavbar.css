@@ -1,0 +1,90 @@
+.navbar {
+  width: 100%;
+  background: linear-gradient(to right, #1e1e2f, #2a2f45);
+  color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  animation: fadeSlideDown 0.4s ease;
+  border-radius: 0 0 10px 10px;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00d4ff;
+  letter-spacing: 0.5px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(255, 78, 80, 0.4);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #f44336, #ffa726);
+  transform: scale(1.05);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #00d4ff;
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.6);
+}
+
+/* Animation */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .brand {
+    font-size: 18px;
+  }
+
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+  }
+}

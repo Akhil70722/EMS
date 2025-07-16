@@ -1,112 +1,264 @@
+/* 🌟 General Container with glass effect */
 .emp-list-container {
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 40px;
+  background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+  min-height: 100vh;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+  animation: fadeIn 0.5s ease-in;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* 🌈 Header Section */
+/* Header Section */
 .emp-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start; /* Header title stays at top */
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 35px;
 }
 
+.emp-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e40af;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #4f46e5, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowFade 1s ease-out forwards;
+}
+
+/* Action Buttons - Horizontal Layout */
 .emp-actions {
   display: flex;
-  gap: 10px;
+  flex-direction: row; /* Horizontal alignment */
+  gap: 12px;
+  align-items: flex-end; /* Aligns with bottom of h2 text */
+  flex-wrap: wrap;
 }
 
-/* Add Employee Button */
-.add-btn {
-  background-color: #1e90ff;
-  color: white;
-  padding: 10px 16px;
+
+.add-btn,
+.download-btn {
+  padding: 12px 24px;
+  font-size: 1.05rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  transition: all 0.3s ease, transform 0.15s ease;
+  min-width: 160px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-btn {
+  background: linear-gradient(145deg, #22c55e, #16a34a);
 }
 
 .add-btn:hover {
-  background-color: #1c86ee;
+  background: linear-gradient(145deg, #16a34a, #15803d);
+  transform: translateY(-2px) scale(1.02);
 }
 
-/* Export CSV Button */
 .download-btn {
-  background-color: #3f51b5;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
 }
 
-.download-btn:hover {
-  background-color: #2c3e90;
+.download-btn:hover:enabled {
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px) scale(1.02);
 }
 
+.download-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 🎨 Ripple effect on click */
+.add-btn::after,
+.download-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.8s ease;
+}
+
+.add-btn:active::after,
+.download-btn:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+/* 📋 Table Styles */
 .emp-table-wrapper {
   overflow-x: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  backdrop-filter: blur(5px);
 }
 
 .emp-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-size: 0.95rem;
+  min-width: 650px;
+}
+
+.emp-table thead {
+  background-color: #e0e7ff;
+  color: #1e3a8a;
 }
 
 .emp-table th,
 .emp-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
+  padding: 16px 22px;
   text-align: left;
 }
 
-.emp-table th {
-  background-color: #f5f5f5;
+.emp-table tbody tr {
+  background-color: #ffffff;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.emp-table tbody tr:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Link Styling */
 .emp-name-link {
-  color: #0077cc;
+  color: #3b82f6;
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
 }
 
 .emp-name-link:hover {
+  color: #1d4ed8;
   text-decoration: underline;
 }
 
-/* Edit Button */
-.edit-btn {
-  background-color: #ffa500;
-  color: white;
-  padding: 6px 12px;
+/* ✨ Buttons in Table */
+.edit-btn,
+.delete-btn {
+  padding: 8px 18px;
+  font-size: 0.9rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  margin-right: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: linear-gradient(145deg, #fbbf24, #f59e0b);
+  color: #1e293b;
 }
 
 .edit-btn:hover {
-  background-color: #e69500;
+  background: linear-gradient(145deg, #f59e0b, #d97706);
 }
 
-/* Delete Button */
 .delete-btn {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  margin-left: 10px;
-  border-radius: 4px;
-  cursor: pointer;
+  background: linear-gradient(145deg, #ef4444, #dc2626);
+  color: #ffffff;
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
+  background: linear-gradient(145deg, #dc2626, #b91c1c);
 }
 
-/* Centered loading or empty messages */
+/* 👤 Single Profile View */
+.single-emp-profile {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 35px;
+  margin-top: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.25s ease;
+}
+
+.single-emp-profile:hover {
+  transform: scale(1.02);
+}
+
+.single-emp-profile p {
+  font-size: 1.05rem;
+  margin: 12px 0;
+}
+
+/* 📡 Loading & Empty State */
 .loading-text,
 .no-data-text {
+  font-size: 1.2rem;
+  color: #64748b;
   text-align: center;
-  margin-top: 30px;
-  color: #777;
+  margin-top: 60px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .emp-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .emp-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .add-btn,
+  .download-btn {
+    width: 100%;
+  }
+}
+
+/* 🔥 Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowFade {
+  0% {
+    text-shadow: 0 0 10px #60a5fa;
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
 }

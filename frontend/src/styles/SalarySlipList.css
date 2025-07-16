@@ -1,0 +1,192 @@
+/* Container Styling */
+.salary-slip-container {
+  max-width: 880px;
+  margin: 50px auto;
+  padding: 24px;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f8fafc;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Card Style with Animation */
+.salary-slip-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  margin-bottom: 40px;
+  padding: 30px 34px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideFade 0.6s ease-in-out;
+}
+
+.salary-slip-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.salary-slip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.salary-slip-header h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  font-weight: 700;
+  margin: 0;
+  animation: bounceIn 0.8s ease-in;
+}
+
+.salary-slip-date {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Section Box */
+.salary-section {
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  animation: fadeIn 1s ease;
+}
+
+/* Section Header */
+.salary-section-header {
+  background-color: #f1f5f9;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #334155;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.salary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f3f4f6;
+  background-color: #ffffff;
+  font-size: 1rem;
+  animation: fadeInRow 0.5s ease-in;
+}
+
+.salary-row:last-child {
+  border-bottom: none;
+}
+
+.salary-label {
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.salary-value {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Final Salary */
+.salary-final {
+  margin-top: 30px;
+  padding: 16px 20px;
+  background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  animation: highlight 1s ease-in-out;
+}
+
+/* Button */
+.download-btn {
+  margin-top: 25px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.download-btn:hover {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRow {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: #e2e8f0;
+  }
+  100% {
+    background-color: #f9fafb;
+  }
+}

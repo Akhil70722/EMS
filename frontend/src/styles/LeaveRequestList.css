@@ -1,0 +1,95 @@
+/* Scoped to LeaveRequestList component */
+.leave-request-container {
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 80vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.leave-request-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.leave-request-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.leave-request-table th,
+.leave-request-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.leave-request-table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+}
+
+.leave-request-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.leave-request-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.leave-request-table td {
+  color: #34495e;
+}
+
+.leave-request-table .actions {
+  display: flex;
+  gap: 8px;
+}
+
+.leave-request-table button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.leave-request-table button:hover {
+  transform: scale(1.05);
+}
+
+.leave-request-table button:nth-child(1) {
+  background-color: #2ecc71; /* Approve button */
+  color: white;
+}
+
+.leave-request-table button:nth-child(1):hover {
+  background-color: #27ae60;
+}
+
+.leave-request-table button:nth-child(2) {
+  background-color: #e74c3c; /* Reject button */
+  color: white;
+}
+
+.leave-request-table button:nth-child(2):hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .leave-request-table th,
+  .leave-request-table td {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .leave-request-container {
+    padding: 10px;
+  }
+}
